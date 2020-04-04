@@ -26,3 +26,23 @@ const sumArray = (array) => {
   return array.sort((a, b) => a - b).slice(1, -1).reduce((a, b) => a + b, 0);
 }
 
+// Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
+// For example,
+// [true,  true,  true,  false,
+//   true,  true,  true,  true ,
+//   true,  false, true,  false,
+//   true,  false, false, true ,
+//   true,  true,  true,  true ,
+//   false, false, true,  true]
+// The correct answer would be 17.
+// Hint: Don't forget to check for bad values like null/undefined
+
+//true = present, false null undefined etc = not present
+//check each index of an array for value of true
+
+const countSheeps = (arrayOfSheep) => {
+  let counter = 0;
+  arrayOfSheep.map((sheep) => {sheep === true? counter ++:counter+0})
+  return counter;
+}
+const countSheeps = (arrayOfSheeps) => arrayOfSheeps.filter(Boolean).length;//better solution created by another user
