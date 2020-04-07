@@ -61,9 +61,70 @@ const countSheeps = (arrayOfSheep) => {
 // error_printer(s) => "0/14"
 // s="aaaxbbbbyyhwawiwjjjwwm"
 // error_printer(s) => "8/22"
+
+// const printerError =(s) => s.match(/[^a-m]/g).length + "/" + s.length;best practice solution from another person. Don't understand the parameters he used for match.
+
 const printerError = (s) => {
   const correctArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m']
   let error = 0;
   s.split('').map((letter) => {correctArray.includes(letter)? error +0:error ++})
   return `${error}/${s.length}`
 }
+
+// Given: an array containing hashes of names
+// Return: a string formatted as a list of names separated by commas except for the last two names, which should be separated by an ampersand.
+// Example:
+// list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ])
+// // returns 'Bart, Lisa & Maggie'
+// list([ {name: 'Bart'}, {name: 'Lisa'} ])
+// // returns 'Bart & Lisa'
+// list([ {name: 'Bart'} ])
+// // returns 'Bart'
+// list([])
+// // returns ''
+
+[ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ]
+
+const list = (people) => people.map(({ name }) => name).join(', ').replace(/,([^,]*)$/, ' &' + '$1');
+
+const list = (people) => {
+  let stringOfNames = people.map(({ name }) => name).join(', ');
+
+  const position = stringOfNames.lastIndexOf(',');
+
+  stringOfNames = stringOfNames.substring(0, position) + ' &' + stringOfNames.substring(position + 1);
+  
+  return stringOfNames;
+}
+
+console.log(list([{name:'victor'},{name:'betty'},{name:'athena'},{name:'vernon'}]))
+
+// write a function  that will accept a jumbled word and a dictionary 
+// and will output a word someone might have said
+
+// 1.
+// word = sprots
+// dictionary = [ sports, ports, ocean, soccer ]
+// output = sports 
+
+// word = sprots
+// dictionary = [ sports, ports, ocean, soccer, portss ]
+// output = [ sports, portss ]
+
+// const wordMatch = (jumbledWord, dictionary) => {
+  //first split the word into individual letter
+  //second check to see if any of the elements in the dictionary parameter contains all of the individual letters
+    //loop through the dictionary parameter
+    //does that parameter include('splitString')
+    //issue: what if it returns two answers for examples sprots can return two words that can come from sprots
+
+//   const splitWord= jumbledWord.split('');
+
+//   dictionary.map((word) => {
+//     if(word.length === jumbledWord.length) {
+//       // do logic
+//       word.includes(splitString)
+//   }
+// }
+
+// wordMatch('sports', [ 'sports', 'ports', 'ocean', 'soccer' ]);
