@@ -87,44 +87,46 @@ const printerError = (s) => {
 
 const list = (people) => people.map(({ name }) => name).join(', ').replace(/,([^,]*)$/, ' &' + '$1');
 
-const list = (people) => {
-  let stringOfNames = people.map(({ name }) => name).join(', ');
+// const list = (people) => {
+//   let stringOfNames = people.map(({ name }) => name).join(', ');
 
-  const position = stringOfNames.lastIndexOf(',');
+//   const position = stringOfNames.lastIndexOf(',');
 
-  stringOfNames = stringOfNames.substring(0, position) + ' &' + stringOfNames.substring(position + 1);
+//   stringOfNames = stringOfNames.substring(0, position) + ' &' + stringOfNames.substring(position + 1);
   
-  return stringOfNames;
-}
+//   return stringOfNames;
 
-console.log(list([{name:'victor'},{name:'betty'},{name:'athena'},{name:'vernon'}]))
+
+
 
 // write a function  that will accept a jumbled word and a dictionary 
 // and will output a word someone might have said
-
-// 1.
+//look at example below
 // word = sprots
 // dictionary = [ sports, ports, ocean, soccer ]
 // output = sports 
 
-// word = sprots
-// dictionary = [ sports, ports, ocean, soccer, portss ]
-// output = [ sports, portss ]
-
 // const wordMatch = (jumbledWord, dictionary) => {
-  //first split the word into individual letter
-  //second check to see if any of the elements in the dictionary parameter contains all of the individual letters
-    //loop through the dictionary parameter
-    //does that parameter include('splitString')
-    //issue: what if it returns two answers for examples sprots can return two words that can come from sprots
-
-//   const splitWord= jumbledWord.split('');
-
-//   dictionary.map((word) => {
-//     if(word.length === jumbledWord.length) {
-//       // do logic
-//       word.includes(splitString)
-//   }
+  // first check to see if any of the elements in the array has the same length as the string and return the ones that do
+  // second split the string into individual letter
+  // second, loop through the remaining elements of the array and see if they include all of the letters and return the one that does
+  //   issue: what if it returns two answers for examples sprots can return two words that can come from sprots: MY SOLUTION = return the first one;
+  // const comparingLength = dictionary.map((word)=> {if(word.length === jumbledWord.length){return word.split('').sort()} else{return null});
+  // console.log(comparingLength)
+  // const letters = jumbledWord.split('').sort();
+  // console.log(letters);
+  // const check = comparingLength.map((word)=> {if(word === letters){return word}else{return null}})
+  // const check = comparingLength.map((word) => {if(word.includes(letters)){return (word)}});
+//   console.log(check)
 // }
+//   console.log(wordMatch('prots',[ 'sports', 'ports', 'ocean', 'soccer' ]))
 
-// wordMatch('sports', [ 'sports', 'ports', 'ocean', 'soccer' ]);
+
+  // wordMatch('sports', [ 'sports', 'ports', 'ocean', 'soccer' ]);
+
+
+// Complete the square sum function so that it squares each number passed into it and then sums the results together.
+// For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.
+const squareSum = (numbers) => numbers.map((number) => Math.pow(number,2)).reduce((a,b) => a+b,0)
+
+console.log(squareSum([0,3,4,5]))
