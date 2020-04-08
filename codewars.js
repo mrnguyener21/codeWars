@@ -129,4 +129,13 @@ const list = (people) => people.map(({ name }) => name).join(', ').replace(/,([^
 // For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.
 const squareSum = (numbers) => numbers.map((number) => Math.pow(number,2)).reduce((a,b) => a+b,0)
 
-console.log(squareSum([0,3,4,5]))
+
+// Your task is to make a function that can take any non-negative integer as a argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+// Examples:
+// Input: 21445 Output: 54421
+// Input: 145263 Output: 654321
+// Input: 123456789 Output: 987654321
+
+const descendingOrder = (n) => parseInt(n.toString().split('').sort().reverse().join(''));
+
+console.log(descendingOrder(123456789));
