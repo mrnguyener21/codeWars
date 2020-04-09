@@ -138,4 +138,30 @@ const squareSum = (numbers) => numbers.map((number) => Math.pow(number,2)).reduc
 
 const descendingOrder = (n) => parseInt(n.toString().split('').sort().reverse().join(''));
 
-console.log(descendingOrder(123456789));
+// Deoxyribonucleic acid (DNA) is a chemical found in the nucleus of cells and carries the "instructions" for the development and functioning of living organisms.
+// In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". You have function with one side of the DNA (string, except for Haskell); you need to get the other complementary side. DNA str
+// DNAStrand ("ATTGC") // return "TAACG"
+// DNAStrand ("GTAT") // return "CATA" 
+const DNAStrand = (dna) => {
+  return dna.split('').map((symbol)=> {
+    if (symbol === 'A'){
+      return 'T'
+    }else if(symbol === 'T'){
+      return 'A'
+    }else if(symbol === 'C'){
+      return "G"
+    }else if(symbol === 'G'){
+      return "C"
+    }
+  }).join('');
+  
+}
+
+
+// Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+// invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+// invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+// invert([]) == []
+const invert = (array) => array.map((number) => Math.sign(number) === 1? -Math.abs(number):Math.abs(number))
+
+console.log(invert([1,-2,3,-4,-5]))
