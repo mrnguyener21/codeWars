@@ -175,7 +175,22 @@ const invert = (array) => array.map((number) => Math.sign(number) === 1? -Math.a
 // minMax([1])           == [1, 1]
 // Remarks
 // All arrays or lists will always have at least one element, so you don't need to check the length. Also, your function will always get an array or a list, you don't have to check for null, undefined or similar.
-
 const minMax =(arr) => [Math.min(...arr),Math.max(...arr)]
 
-console.log(minMax([1,2,3,4,5]))
+
+// Given two numbers and an arithmetic operator (the name of it, as a string), return the result of the two numbers having that operator used on them.
+// a and b will both be positive integers, and a will always be the first number in the operation, and b always the second.
+// The four operators are "add", "subtract", "divide", "multiply".
+// A few examples:
+// arithmetic(5, 2, "add")      => returns 7
+// arithmetic(5, 2, "subtract") => returns 3
+// arithmetic(5, 2, "multiply") => returns 10
+// arithmetic(5, 2, "divide")   => returns 2.5
+// ArithmeticFunction.arithmetic(5, 2, "add")      => returns 7
+// ArithmeticFunction.arithmetic(5, 2, "subtract") => returns 3
+// ArithmeticFunction.arithmetic(5, 2, "multiply") => returns 10
+// ArithmeticFunction.arithmetic(5, 2, "divide")   => returns 2
+// Try to do it without using if statements!
+const arithmetic = (a,b, operator) => operator === 'subtract'? a-b:operator === 'add'?a+b:operator === 'multiply'? a*b:a/b;
+
+console.log(arithmetic(1,2,'something'))
