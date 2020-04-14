@@ -197,3 +197,62 @@
 const checkCoupon = (enteredCode, correctCode, currentDate, expirationDate) => enteredCode === correctCode && new Date(currentDate) <= new Date(expirationDate)? true:false;
 
 checkCoupon('123a','123','September 5, 2014','October 1, 2014');
+
+// Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
+// Write a function which takes a list of strings and returns each line prepended by the correct number.
+// The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+// Examples:
+// number([]) // => []
+// number(["a", "b", "c"]) // => ["1: a", "2: b", "3: c"]
+
+const number = (array) => array.map((v, i) => `${i + 1}: ${v}`)
+number(['a','b','c'])
+// console.log(number(['a','b','c']))
+
+
+// let x = array.map((letter) => alphabet.indexOf(letter)); 
+// console.log(x) RETURNED [0,1,2]
+
+
+// let x =''
+//   array.map((letter)=> x = alphabet.indexOf(letter))
+  // console.log(x) RETURNED 2
+
+  // const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  //   const numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,,15,16,17,18,18,20,21,22,23,24,25,26];
+  //   let answer = []
+  //   let x =''
+  
+  //   for (let i = 0; i < array.length; i++){
+  //     x = alphabet.indexOf(array[i]);
+  //     console.log(x)//return 0 1 2 
+  //     answer.push( `${numbers[x]}: ${alphabet[x]}`);
+  //   }
+  //   return answer;
+  
+//   In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+// Example:
+// highAndLow("1 2 3 4 5");  // return "5 1"
+// highAndLow("1 2 -3 4 5"); // return "5 -3"
+// highAndLow("1 9 3 4 -5"); // return "9 -5"
+// Notes:
+// All numbers are valid Int32, no need to validate them.
+// There will always be at least one number in the input string.
+// Output string must be two numbers separated by a single space, and highest number is first.
+
+const highAndLow = (numbers) => {
+  const sortedArray = numbers.split(' ').sort((a,b) => a-b);
+  if(sortedArray.length > 1){
+    return `${sortedArray.pop()} ${sortedArray.shift()}`  
+  }else{
+    const singleValue = sortedArray.pop()
+    return`${singleValue} ${singleValue}`
+  }
+}
+// highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6")
+console.log(highAndLow("42"))
+// BELOW IS THE BEST PRACTICE
+// function highAndLow(numbers){
+//   numbers = numbers.split(' ').map(Number);
+//   return Math.max.apply(0, numbers) + ' ' + Math.min.apply(0, numbers);
+// }
