@@ -298,3 +298,27 @@ const roundToNext5 = (n) => Math.ceil(n/5)*5;
 
 
 
+
+// Given the triangle of consecutive odd numbers:
+
+//              1
+//           3     5
+//        7     9    11
+//    13    15    17    19
+// 21    23    25    27    29
+// ...
+// Calculate the row sums of this triangle from the row index (starting at index 1) e.g.:
+
+// rowSumOddNumbers(1); // 1
+// rowSumOddNumbers(2); // 3 + 5 = 8
+
+
+//create a formula that adds a row of odd numbers. that row contains that many numbers, so if n = 6 then that means there should be six odd numbers being added
+//the rows are in order
+//first figure how to get the starting number of each row
+//second take the starting number and add 2 to it for the next number until the amount of numbers matches n
+//third add it all together
+
+const rowSumOddNumbers = (n) => Math.pow(n,3)
+rowSumOddNumbers(4)
+
