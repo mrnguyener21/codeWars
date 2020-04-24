@@ -497,3 +497,44 @@ findSum(10);
 
 
 
+// You are given an odd-length array of integers, in which all of them are the same, except for one single number.
+
+// Complete the method which accepts such an array, and returns that single different number.
+
+// The input array will always be valid! (odd-length >= 3)
+
+// Examples
+// [1, 1, 2] ==> 2
+// [17, 17, 3, 17, 17, 17, 17] ==> 3
+
+const stray = (numbers) => {
+  const sortedArray = numbers.sort();
+
+  if(sortedArray[0] !== sortedArray[1]){
+    return sortedArray[0]
+  }else {
+    return sortedArray[sortedArray.length-1]
+  }
+  
+}
+//below is best practice(ternary operator version of my solution)
+// function stray(numbers) {
+//   numbers = numbers.sort();
+//   return numbers[0] === numbers[1] ? numbers[numbers.length - 1] : numbers[0];
+//   }
+  
+stray([17, 17, 3, 17, 17, 17, 17]);
+
+
+
+// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+
+// Examples:
+
+// solution('abc', 'bc') // returns true
+// solution('abc', 'd') // returns false
+
+const solution =(str, ending) => str.endsWith(ending)
+
+
+solution('sumo','umo');
