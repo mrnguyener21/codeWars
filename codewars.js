@@ -536,5 +536,44 @@ stray([17, 17, 3, 17, 17, 17, 17]);
 
 const solution =(str, ending) => str.endsWith(ending)
 
-
 solution('sumo','umo');
+
+
+// Trolls are attacking your comment section!
+
+// A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+// For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+// Note: for this kata y isn't considered a vowel.
+
+
+// Trolls are attacking your comment section!
+
+// A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+// For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+// Note: for this kata y isn't considered a vowel.
+
+const disemvowel = (str) => {
+  const vowels = 'aeiouAEIOU'
+  const answer = [];
+  str.split('').map((letter) => {
+
+    if(vowels.includes(letter)){
+      null;
+    } else{
+      answer.push(letter);
+    }    
+  })
+  return answer.join('')
+}
+
+// below is the best answer
+// str.repalce(/[aeiou]/gi, '')
+disemvowel('This website is for losers LOL!')
