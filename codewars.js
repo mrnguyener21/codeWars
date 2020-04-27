@@ -581,18 +581,32 @@ disemvowel('This website is for losers LOL!')
 
 
 
-// Given a positive number n > 1 find the prime factor decomposition of n. The result will be a string with the following form :
+// A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
 
-//  "(p1**n1)(p2**n2)...(pk**nk)"
-// with the p(i) in increasing order and n(i) empty if n(i) is 1.
+// Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
 
-// Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
+const isPangram = (string) => {
+  const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  let doubleCheck = [];
+  const split = string.toLowerCase().split('').sort().replace(/[0-9]/g,'');
+  split.map((letter) => {
+    if( !doubleCheck.includes(letter) && letter !== ' ' && letter !== '.'){
+      doubleCheck.push(letter);
+    }
+  })
 
-// find the prime numbers and how many of each of the prime numbers. so with the example above there are five 2s, one 5, 2 7s and one 11 that make up all of the prime numbers to get to 86240;
-
-//the return is gonna be a string `(${the prime number}*$the le)
-const primeFactors = (n) => {
-
+  if( alphabet.join() === doubleCheck.join()){
+    return true;
+  }else{
+    // console.log(doubleCheck.join().replace(/[0-9]/g,''))
+    return false;
+  }
 }
-
-primeFactors(7775460)
+isPangram('The quick brown fox jumps over the lazy dog quick.')
+// below is the best Option
+// function isPangram(string){
+//   string = string.toLowerCase();
+//   return "abcdefghijklmnopqrstuvwxyz".split("").every(function(x){
+//     return string.indexOf(x) !== -1;
+//   });
+// }
