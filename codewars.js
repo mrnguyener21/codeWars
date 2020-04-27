@@ -577,3 +577,22 @@ const disemvowel = (str) => {
 // below is the best answer
 // str.repalce(/[aeiou]/gi, '')
 disemvowel('This website is for losers LOL!')
+
+
+
+
+// Given a positive number n > 1 find the prime factor decomposition of n. The result will be a string with the following form :
+
+//  "(p1**n1)(p2**n2)...(pk**nk)"
+// with the p(i) in increasing order and n(i) empty if n(i) is 1.
+
+// Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
+
+// find the prime numbers and how many of each of the prime numbers. so with the example above there are five 2s, one 5, 2 7s and one 11 that make up all of the prime numbers to get to 86240;
+
+//the return is gonna be a string `(${the prime number}*$the le)
+const primeFactors = (n) => {
+
+}
+
+primeFactors(7775460)
