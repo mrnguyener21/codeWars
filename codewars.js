@@ -585,24 +585,24 @@ disemvowel('This website is for losers LOL!')
 
 // Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
 
-const isPangram = (string) => {
-  const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  let doubleCheck = [];
-  const split = string.toLowerCase().split('').sort().replace(/[0-9]/g,'');
-  split.map((letter) => {
-    if( !doubleCheck.includes(letter) && letter !== ' ' && letter !== '.'){
-      doubleCheck.push(letter);
-    }
-  })
+// const isPangram = (string) => {
+//   const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+//   let doubleCheck = [];
+//   const split = string.toLowerCase().split('').sort().replace(/[0-9]/g,'');
+//   split.map((letter) => {
+//     if( !doubleCheck.includes(letter) && letter !== ' ' && letter !== '.'){
+//       doubleCheck.push(letter);
+//     }
+//   })
 
-  if( alphabet.join() === doubleCheck.join()){
-    return true;
-  }else{
-    // console.log(doubleCheck.join().replace(/[0-9]/g,''))
-    return false;
-  }
-}
-isPangram('The quick brown fox jumps over the lazy dog quick.')
+//   if( alphabet.join() === doubleCheck.join()){
+//     return true;
+//   }else{
+//     // console.log(doubleCheck.join().replace(/[0-9]/g,''))
+//     return false;
+//   }
+// }
+// isPangram('The quick brown fox jumps over the lazy dog quick.')
 // below is the best Option
 // function isPangram(string){
 //   string = string.toLowerCase();
@@ -610,3 +610,74 @@ isPangram('The quick brown fox jumps over the lazy dog quick.')
 //     return string.indexOf(x) !== -1;
 //   });
 // }
+
+// Once upon a time, on a way through the old wild mountainous west,…
+// … a man was given directions to go from one point to another. The directions were "NORTH", "SOUTH", "WEST", "EAST". Clearly "NORTH" and "SOUTH" are opposite, "WEST" and "EAST" too.
+
+// Going to one direction and coming back the opposite direction right away is a needless effort. Since this is the wild west, with dreadfull weather and not much water, it's important to save yourself some energy, otherwise you might die of thirst!
+
+// How I crossed a mountain desert the smart way.
+// The directions given to the man are, for example, the following (depending on the language):
+
+// ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"].
+// or
+
+// { "NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST" };
+// or
+
+// [North, South, South, East, West, North, West]
+// You can immediatly see that going "NORTH" and immediately "SOUTH" is not reasonable, better stay to the same place! So the task is to give to the man a simplified version of the plan. A better plan in this case is simply:
+
+// ["WEST"]
+// or
+
+// { "WEST" }
+// or
+
+// [West]
+// Other examples:
+// In ["NORTH", "SOUTH", "EAST", "WEST"], the direction "NORTH" + "SOUTH" is going north and coming back right away.
+
+// The path becomes ["EAST", "WEST"], now "EAST" and "WEST" annihilate each other, therefore, the final result is [] (nil in Clojure).
+
+// In ["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"], "NORTH" and "SOUTH" are not directly opposite but they become directly opposite after the reduction of "EAST" and "WEST" so the whole path is reducible to ["WEST", "WEST"].
+
+// Task
+// Write a function dirReduc which will take an array of strings and returns an array of strings with the needless directions removed (W<->E or S<->N side by side).
+
+// The Haskell version takes a list of directions with data Direction = North | East | West | South.
+// The Clojure version returns nil when the path is reduced to nothing.
+// The Rust version takes a slice of enum Direction {NORTH, SOUTH, EAST, WEST}.
+// See more examples in "Sample Tests:"
+// Notes
+// Not all paths can be made simpler. The path ["NORTH", "WEST", "SOUTH", "EAST"] is not reducible. "NORTH" and "WEST", "WEST" and "SOUTH", "SOUTH" and "EAST" are not directly opposite of each other and can't become such. Hence the result path is itself : ["NORTH", "WEST", "SOUTH", "EAST"].
+// if you want to translate, please ask before translating.
+
+// MY SIMPLIFIED DIRECTIONS: give back the directions that don't cancel out each out.
+// Example given is : ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]), ["WEST"]
+// explanation: North and South cancel each other and east and west cancel each other. So the first two element 0 and 1 are canceled, and then element 3 and 4 are also canceled. That leaves us with north south west, but north south cancel each other leaving the answer west
+
+const dirReduc = (arr) => {
+  //while north is next to south and east is next to west
+  let startingPoint = arr.length 
+  // console.log(arr)
+  while(startingPoint--){
+    
+    for (let i = 0, j = 1; i < arr.length; i++, j++) {
+      if( arr[i] === 'NORTH' && arr[j] === 'SOUTH' || arr[i] === 'SOUTH' && arr[j] === 'NORTH'){
+        // console.log(arr[i], arr[j])
+        // console.log(i,j)
+        arr.splice(arr[i],2);
+        // console.log(arr);
+      }else if( arr[i] === 'EAST' && arr[j] === 'WEST' || arr[i] === 'WEST' && arr[j] === 'EAST'){
+        // console.log(arr[i], arr[j])
+
+        arr.splice(arr[i],2);
+        // console.log(arr);
+      }
+    }
+    console.log(arr);
+  }
+
+}
+dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])
