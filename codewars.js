@@ -657,27 +657,44 @@ disemvowel('This website is for losers LOL!')
 // Example given is : ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]), ["WEST"]
 // explanation: North and South cancel each other and east and west cancel each other. So the first two element 0 and 1 are canceled, and then element 3 and 4 are also canceled. That leaves us with north south west, but north south cancel each other leaving the answer west
 
-const dirReduc = (arr) => {
-  //while north is next to south and east is next to west
-  let startingPoint = arr.length 
-  // console.log(arr)
-  while(startingPoint--){
+// const dirReduc = (arr) => {
+//   //while north is next to south and east is next to west
+//   let startingPoint = arr.length 
+//   // console.log(arr)
+//   while(startingPoint--){
     
-    for (let i = 0, j = 1; i < arr.length; i++, j++) {
-      if( arr[i] === 'NORTH' && arr[j] === 'SOUTH' || arr[i] === 'SOUTH' && arr[j] === 'NORTH'){
-        // console.log(arr[i], arr[j])
-        // console.log(i,j)
-        arr.splice(arr[i],2);
-        // console.log(arr);
-      }else if( arr[i] === 'EAST' && arr[j] === 'WEST' || arr[i] === 'WEST' && arr[j] === 'EAST'){
-        // console.log(arr[i], arr[j])
+//     for (let i = 0, j = 1; i < arr.length; i++, j++) {
+//       if( arr[i] === 'NORTH' && arr[j] === 'SOUTH' || arr[i] === 'SOUTH' && arr[j] === 'NORTH'){
+//         // console.log(arr[i], arr[j])
+//         // console.log(i,j)
+//         arr.splice(arr[i],2);
+//         // console.log(arr);
+//       }else if( arr[i] === 'EAST' && arr[j] === 'WEST' || arr[i] === 'WEST' && arr[j] === 'EAST'){
+//         // console.log(arr[i], arr[j])
 
-        arr.splice(arr[i],2);
-        // console.log(arr);
-      }
-    }
-    console.log(arr);
-  }
+//         arr.splice(arr[i],2);
+//         // console.log(arr);
+//       }
+//     }
+//     console.log(arr);
+//   }
 
+// }
+// dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])
+
+
+// Write a function that reverses the bits in an integer.
+
+// For example, the number 417 is 110100001 in binary. Reversing the binary is 100001011 which is 267.
+
+// You can assume that the number is not negative.
+
+const reverseBits = (n) => {
+  const convertToBinary = parseInt(n).toString(2);
+  const reverseBinary = convertToBinary.split('').reverse().join('');
+  const convertToNumber = parseInt(reverseBinary,2)
+  return convertToNumber;
+  // console.log(convertToNumber);
 }
-dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])
+reverseBits(417)
+// console.log(reverseBits(417));
