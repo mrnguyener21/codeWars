@@ -689,12 +689,90 @@ disemvowel('This website is for losers LOL!')
 
 // You can assume that the number is not negative.
 
-const reverseBits = (n) => {
-  const convertToBinary = parseInt(n).toString(2);
-  const reverseBinary = convertToBinary.split('').reverse().join('');
-  const convertToNumber = parseInt(reverseBinary,2)
-  return convertToNumber;
-  // console.log(convertToNumber);
-}
-reverseBits(417)
+// const reverseBits = (n) => {
+//   const convertToBinary = parseInt(n).toString(2);
+//   const reverseBinary = convertToBinary.split('').reverse().join('');
+//   const convertToNumber = parseInt(reverseBinary,2)
+//   return convertToNumber;
+// }
+// reverseBits(417)
 // console.log(reverseBits(417));
+
+// Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and return as shown below. Index 0 will be considered even.
+
+// For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF']. See test cases for more examples.
+
+// The input will be a lowercase string with no spaces.
+
+// Good luck!
+
+const capitalize = (s) => {
+  let answer = [];
+  //we will push initial paremeter into the answer array as its first index;
+  //after we will have to create another variable where we split the parameter, see if the index is divisble by 2 so we can determine if the index is even or not( 0 is considered even)
+  //if the index is divisble by 2 we will have to swap them for the capitalized version
+  //after that just join the array back into a string and push that result into the answer array as the second index
+  answer.push(s);
+  const convertToCapital = () => {
+    
+    const turnStringIntoArray = s.split('');
+    // console.log(turnStringIntoArray)
+    turnStringIntoArray.map(() => {
+        if (turnStringIntoArray.indexOf() % 2 === 0){
+          indexOf(turnStringIntoArray).toUpperCase();
+        }
+        // console.log(turnStringIntoArray)
+    })
+  } 
+  
+  answer.push(convertToCapital())
+  // console.log(answer)
+  
+  return answer;
+};
+
+capitalize("abcdef")
+// console.log(capitalize());
+
+
+
+
+
+
+
+// You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+
+// #Examples:
+
+// Kata.getMiddle("test") should return "es"
+
+// Kata.getMiddle("testing") should return "t"
+
+// Kata.getMiddle("middle") should return "dd"
+
+// Kata.getMiddle("A") should return "A"
+// #Input
+
+// A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases). You do not need to test for this. This is only here to tell you that you do not need to worry about your solution timing out.
+
+// #Output
+
+// The middle character(s) of the word represented as a string.
+
+const getMiddle =(s) => {
+// check the length to determine if it is the length is even or odd. 
+const check = s.length;
+console.log(check)
+
+if (check%2 === 0){
+  console.log('even')
+}else{
+  console.log('odd');
+}
+//if odd
+  //
+//if even
+  //
+}
+getMiddle('testy');
+// console.log(getMiddle('test'));
