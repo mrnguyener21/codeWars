@@ -848,6 +848,4 @@ capitalize("abcdef")
 // hello          => "Hello, World!" # name not given
 // hello ''       => "Hello, World!" # name is an empty String
 
-const hello = (name) => {
-  return '';
-}
+const hello = (name) => `hello, ${name ? (name[0].toUpperCase() + name.slice(1).toLowerCase()) : 'World'}!`
