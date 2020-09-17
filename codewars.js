@@ -866,5 +866,12 @@ capitalize("abcdef")
 // (4, 1, 4)     ->  true
 // (15, -5, 3)   ->  true
 
-const isDivideBy = (number, a, b) => number % a === 0 && number % b === 0 
-console.log(isDivideBy(-12,2,-6))
+// const isDivideBy = (number, a, b) => number % a === 0 && number % b === 0 
+// console.log(isDivideBy(-12,2,-6))
+
+//Multiply
+//This code does not execute properly. Try to figure out why
+
+const multiply = (a, b) => a*b
+multiply()
+console.log(multiply(2,1))
