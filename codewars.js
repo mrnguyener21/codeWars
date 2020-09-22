@@ -919,4 +919,11 @@ capitalize("abcdef")
 
 // arr(5) // => [0,1,2,3,4]
 
-const arr = N => [];
+const arr = () => {
+  const context = [];
+  for (let i = 0; i < 5; i++) {
+    context.push(i)
+  }
+  return context;
+}
+console.log(arr())
