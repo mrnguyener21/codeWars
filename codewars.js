@@ -919,11 +919,19 @@ capitalize("abcdef")
 
 // arr(5) // => [0,1,2,3,4]
 
-const arr = () => {
-  const context = [];
-  for (let i = 0; i < 5; i++) {
-    context.push(i)
-  }
-  return context;
-}
-console.log(arr())
+// const arr = () => {
+//   const context = [];
+//   for (let i = 0; i < 5; i++) {
+//     context.push(i)
+//   }
+//   return context;
+// }
+// console.log(arr())
+
+
+
+//Even or Odd
+
+// Create a function (or write a script in Shell) that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+
+const even_or_odd = (number) => number % 2 === 0  ? 'Even' : 'Odd'; 
