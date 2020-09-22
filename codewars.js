@@ -935,3 +935,21 @@ capitalize("abcdef")
 // Create a function (or write a script in Shell) that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
 
 const even_or_odd = (number) => number % 2 === 0  ? 'Even' : 'Odd'; 
+
+
+//Sum of positive
+// You get an array of numbers, return the sum of all of the positives ones.
+
+// Example [1,-4,7,12] => 1 + 7 + 12 = 20
+
+// Note: if there is nothing to sum, the sum is default to 0.
+
+const positiveSum = (arr) => {
+  let startingNumber = 0
+  for (let i = 0; i < arr.length; i++) {
+    formula = startingNumber + arr[i];
+    startingNumber = formula;
+  }
+  return Math.abs(startingNumber)
+}
+console.log(positiveSum([1,2,3,4,5]))
