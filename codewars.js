@@ -952,4 +952,24 @@ const positiveSum = (arr) => {
   }
   return Math.abs(startingNumber)
 }
-console.log(positiveSum([1,2,3,4,5]))
+// console.log(positiveSum([1,2,3,4,5]))
+
+//vowel counting
+
+// Return the number (count) of vowels in the given string.
+
+// We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+// The input string will only consist of lower case letters and/or spaces.
+
+const getCount = (str) => {
+  let vowelsCount = 0;
+  let vowels = [];
+  let split = str.split('')
+
+  split.map((letter) => letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter ==='u' ? vowels.push(letter) : null)
+  
+  vowelsCount = vowels.length
+  
+  return vowelsCount;
+}
