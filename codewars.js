@@ -990,15 +990,9 @@ const accum = (s) => {
   //first letter is capitalized and the rest is lower case(index(1).toUpperCase())
   //based on the position is that many multiple. so first letter is A, second letter is Bb, third letter is Ccc etc
     //
+  return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
 
-  let split = s.split('')
-  let result =[];
-  // console.log(split);
-
-  split.map((letter,i) => {
-    let newString = letter.repeat(i+1).indexOf()
-    console.log(newString)
-  })
 }
 accum('abcd')
+
 
