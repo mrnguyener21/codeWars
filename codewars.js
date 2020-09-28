@@ -986,5 +986,19 @@ const getCount = (str) => {
 // The parameter of accum is a string which includes only letter from a - z and A - Z
 
 const accum = (s) => {
-	
+  //we want to split to string where each letter is separated by "-"
+  //first letter is capitalized and the rest is lower case(index(1).toUpperCase())
+  //based on the position is that many multiple. so first letter is A, second letter is Bb, third letter is Ccc etc
+    //
+
+  let split = s.split('')
+  let result =[];
+  // console.log(split);
+
+  split.map((letter,i) => {
+    let newString = letter.repeat(i+1).indexOf()
+    console.log(newString)
+  })
 }
+accum('abcd')
+
