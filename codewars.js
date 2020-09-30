@@ -1003,6 +1003,11 @@ accum('abcd')
 
 // Good luck!
 const solve = (s) => {
-
+  // have to differentiate between lettes and numbers
+  //push the numbers into an array
+  //
+  solve=s=>Math.max(...s.match(/\d+|$/g))
+  // \d+ => \d represent any digit from 0-9 and the + represents more than once
+  // g is what makes the search global so it doesnt stop from the first one it finds( it loops till the end)
   };
 solve('gh12cdy695m1');
