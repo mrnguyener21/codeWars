@@ -1002,15 +1002,11 @@ accum('abcd')
 // For example, solve("gh12cdy695m1") = 695, because this is the largest of all number groupings.
 
 // Good luck!
-const solve = (s) => {
-  // have to differentiate between lettes and numbers
-  //push the numbers into an array
-  //
-  solve=s=>Math.max(...s.match(/\d+|$/g))
+
+  // solve=s=>Math.max(...s.match(/\d+|$/g))
   // \d+ => \d represent any digit from 0-9 and the + represents more than once
   // g is what makes the search global so it doesnt stop from the first one it finds( it loops till the end)
-  };
-solve('gh12cdy695m1');
+// solve('gh12cdy695m1');
 
 
 //Get the Middle Character
@@ -1034,6 +1030,10 @@ solve('gh12cdy695m1');
 
 // The middle character(s) of the word represented as a string.
 
-const getMiddle = (s) => {
-
-}
+//find the length of the string and take that number and determine if its even or odd by using the remainder operator
+//split the string to get an array
+//if even did the length by two to get the center number in order to get the letter in the middle position
+//if odd then do the same thing but add and subtract one
+const getMiddle = (s) => s.length % 2 === 0 ? (s[s.length/2 - 1] + s[s.length/2]): (s[(s.length - 1)/2])
+// getMiddle('testing');
+// console.log(getMiddle('testing'))
