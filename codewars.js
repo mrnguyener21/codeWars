@@ -1059,6 +1059,8 @@ const findShort = (s) => Math.min(...s.split(' ').map((word) => word.length))
 // findShort(  "bitcoin take over the world maybe who knows perhaps");
 // console.log(findShort(  "bitcoin take over the world maybe who knows perhaps"))
 
+
+
 //isogram
 // An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
 
@@ -1066,6 +1068,20 @@ const findShort = (s) => Math.min(...s.split(' ').map((word) => word.length))
 // isIsogram("aba") == false
 // isIsogram("moOse") == false // -- ignore letter case
 
-const isIsogram = (str) => {
+//split into an array and turn all of the letters lowercase
+// use a for loop to loop through the array and then see if the current iteration matches the next iteration
 
+
+const isIsogram = (str) => {
+  let answer = true;
+  const split = str.toLowerCase().split('').sort();
+
+  for (let i = 0; i < split.length-1; i++) {
+    if (split[i] === split[i+1]){
+      answer = false
+    }
+  }
+
+  return answer;
 }
+// console.log(isIsogram('Dermatoglyphics'))
