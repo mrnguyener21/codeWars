@@ -1046,11 +1046,26 @@ const getMiddle = (s) => s.length % 2 === 0 ? (s[s.length/2 - 1] + s[s.length/2]
 //split the string
 //loop through the new array returning the length
 //use math.min? to get the minimum
-const findShort = (s) => {
-  let split = s.split(' ')
-  const numbers = [];
-  split.map((word) => numbers.push(word.length))
-  return Math.min(...numbers);
+
+
+// const findShort = (s) => {
+//   let split = s.split(' ')
+//   const numbers = [];
+//   split.map((word) => numbers.push(word.length))
+//   return Math.min(...numbers);
+// }
+
+const findShort = (s) => Math.min(...s.split(' ').map((word) => word.length))
+// findShort(  "bitcoin take over the world maybe who knows perhaps");
+// console.log(findShort(  "bitcoin take over the world maybe who knows perhaps"))
+
+//isogram
+// An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+
+// isIsogram("Dermatoglyphics") == true
+// isIsogram("aba") == false
+// isIsogram("moOse") == false // -- ignore letter case
+
+const isIsogram = (str) => {
+
 }
-findShort(  "bitcoin take over the world maybe who knows perhaps");
-console.log(findShort(  "bitcoin take over the world maybe who knows perhaps"))
