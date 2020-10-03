@@ -1101,6 +1101,29 @@ const isIsogram = (str) => {
 // XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
 // XO("zzoo") => false
 
-const XO = (str) => {
+
+//split the string and loop through it
+//if the letter equals x push to x array and same for o
+//after words join the respectvie arrays and compare the length
+
+//This is my solution
+// const XO = (str) => {
+//   let x = [];
+//   let o = [];
+
+//   str.toLowerCase().split('').map((letter) => {
+//     if(letter === 'x'){
+//       x.push(letter);
+//     }else if(letter === 'o'){
+//       o.push(letter);
+//     }
+//   })
   
-}
+//  return x.length === o.length ?  true :  false;
+// }
+
+//This was the best solution i saw that was still practical to read
+const XO = (str) => str.toLowerCase().split('x').length === str.toLowerCase().split('o').length;
+
+
+console.log(XO('xxOo'));
