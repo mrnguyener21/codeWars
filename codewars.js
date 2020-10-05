@@ -1143,7 +1143,5 @@ const XO = (str) => str.toLowerCase().split('x').length === str.toLowerCase().sp
 
 //goal, capitalize the first letter of every word
 const toJadenCase = (str) => str.split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-
-
-toJadenCase("How can mirrors be real if our eyes aren't real");
-console.log(toJadenCase("How can mirrors be real if our eyes aren't real"))
+// toJadenCase("How can mirrors be real if our eyes aren't real");
+// console.log(toJadenCase("How can mirrors be real if our eyes aren't real"))
