@@ -1230,7 +1230,20 @@ const getSum = (a,b) => {
 //p = desired population
 
 //i just gott come up with a math formula
+//p0 = i
+//for each yr(loop) = i*(1+percent) + aug
+//loop stops when the total is greater than or equal to "p"
 
 const nbYear = (p0, percent, aug, p) => {
-  // your code
+  let counter = 0;
+  let currentPopulation = p0;
+
+  for (let i = 1; currentPopulation <=p; i++) {
+    let formula = currentPopulation + (currentPopulation*(percent/100)) + aug;
+      counter = i
+      currentPopulation = formula;
+    }
+
+  return counter;
 }
+// console.log(nbYear(1500, 5, 100, 5000))
