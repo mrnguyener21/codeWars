@@ -1289,8 +1289,27 @@ const accum = (s) => s.toLowerCase().split('').map((letter, i) => letter.toUpper
 // maskify("Skippy")                                   == "##ippy"
 // maskify("Nananananananananananananananana Batman!") == "####################################man!"
 
-const maskify = (cc) => {
 
+// [0,1,2,3,4,5]
+const maskify = (creditCardNumber) => {
+  if(creditCardNumber.length <= 4){
+    return creditCardNumber;
+  }else{
+    const placeholder = [];
+    
+    creditCardNumber.split('').map((number,i) => {
+      if( i < creditCardNumber.length - 4){
+        number = '#';
+        placeholder.push(number);
+      }else{
+        placeholder.push(number);
+      }
+    })
+
+     return placeholder.join('');
+  }
+  
 }
 
 maskify('4556364607935616')
+// console.log(maskify('4556364607935616'))
