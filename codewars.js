@@ -985,15 +985,15 @@ const getCount = (str) => {
 // accum("cwAt") -> "C-Ww-Aaa-Tttt"
 // The parameter of accum is a string which includes only letter from a - z and A - Z
 
-const accum = (s) => {
+// const accum = (s) => {
   //we want to split to string where each letter is separated by "-"
   //first letter is capitalized and the rest is lower case(index(1).toUpperCase())
   //based on the position is that many multiple. so first letter is A, second letter is Bb, third letter is Ccc etc
     //
-  return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+  // return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
 
-}
-accum('abcd')
+// }
+// accum('abcd')
 
 
 //NUmbers in strings
@@ -1260,6 +1260,23 @@ const nbYear = (p0, percent, aug, p) => {
 // accum("cwAt") -> "C-Ww-Aaa-Tttt"
 // The parameter of accum is a string which includes only letters from a..z and A..Z.
 
-const accum = (s) => {
-	// your code
-}
+
+// based on the position, it repeats itself three times
+//the first letter of each sequence will always be capital
+
+
+//my answer
+// const accum = (s) => {
+//   const answer = [];
+//   s.toLowerCase().split('').map((letter, i) => {
+//     const formula = letter.toUpperCase().concat(letter.repeat(i))
+//     answer.push(formula)
+//   })
+//   return answer.join('-');
+// }
+
+const accum = (s) => s.toLowerCase().split('').map((letter, i) => letter.toUpperCase().concat(letter.repeat(i))).join('-')
+
+
+// accum('ZpglnRxqenU')
+// console.log(accum('ZpglnRxqenU'))
