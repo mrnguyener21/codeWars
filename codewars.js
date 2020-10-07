@@ -1222,6 +1222,15 @@ const getSum = (a,b) => {
 // nb_year(1500000, 2.5, 10000, 2000000) -> 10
 // Note: Don't forget to convert the percent parameter as a percentage in the body of your function: if the parameter percent is 2 you have to convert it to 0.02.
 
+
+
+//p0 = starting population
+//percent = percentage of polulation growth/yr
+//aug = amount increased by people moving in
+//p = desired population
+
+//i just gott come up with a math formula
+
 const nbYear = (p0, percent, aug, p) => {
   // your code
 }
