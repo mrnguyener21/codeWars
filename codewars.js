@@ -1163,14 +1163,32 @@ const toJadenCase = (str) => str.split(' ').map((word) => word.charAt(0).toUpper
 // GetSum(-1, 2) == 2  // -1 + 0 + 1 + 2 = 2
 
 const getSum = (a,b) => {
-  if ( a === b){
-    return a;
-  }else if(a < b ) {
-    
-  } else if (a > b){
+  //commented section was my solution
+  // if ( a === b){
+  //   return a;
+  // }else if(a < b ) {
+  //   const answer = [];
+
+  //   for (let i = a; i < b+1; i++) {
+  //     answer.push(i);
+  //   }
+
+  //   return answer.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  // } else if (a > b){
+  //   const answer = [];
+
+  //   for (let i = b; i < a+1; i++) {
+  //     answer.push(i);
+  //   }
+
+  //   return answer.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  // }
+
+  //this was the best solution that also made sense; apparently there's a formula for it
+  let min = Math.min(a, b),
+  max = Math.max(a, b);
+  return (max - min + 1) * (min + max) / 2;
+
 
   }
-
-  }
-
-console.log(getSum(2,1))
+// console.log(getSum(4,1))
