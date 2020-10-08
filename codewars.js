@@ -1327,7 +1327,13 @@ maskify('4556364607935616')
 // "12345"  -->  false
 // "a234"   -->  false
 
+// have to figure out how to get rid of spaces that can cause the length to equal 4 or 6
 const validatePIN = (pin) => {
-
+  if(pin.length === 4 || pin.length === 6){
+    let check = (digit) => digit >= 0 && digit <= 9 ? true : false ;
+    return pin.split('').every(check)
+  } else{
+    return false;
+  }
 }
-pin('1234')
+console.log(validatePIN('09876 '))
