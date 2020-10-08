@@ -1389,6 +1389,48 @@ const likes = (names) => {
 // "zzbaabcd" -> 4
 // "" -> 0
 
-longestPalindrome = (s) => {
-  //your code here
+//lets have a variable hold the current longest palindrone. it's current value will only replaced if the new palindrone founded has a longer length
+// i get how to use the split reverse and join method, but how would i know where to split or is it possible to compare it to the previous string
+
+
+const longestPalindrome = (s) => {
+  let start = 0, end = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    let center = getCenters(s,i);
+    let bounds = expandAroundCenters(s, center[0], center[1]);
+    let L = bounds[0], R = bounds[1];
+
+    if(R - L > end - start){
+      start = L;
+      end = R;
+    }
+    console.log('---');
+    i = center[1]; //move to the end of center, i++ will then shift pointer to index right after current center;
+  }
+
+  const getCenters = (s,c) => {
+    let L = c, R = c;
+    console.log('get center start index:' + c);
+
+    while (s[L] === s[R] <= s.length);
+    console.log('return ' + L +  ':' + (R-1));
+
+    return [L,--R];
+  }
+
+  const expandAroundCenters = (s, left,right) => {
+    let L = left, R = right;
+
+    while ( L >= 0 && R <s.length && s[L] === s[R]){
+      L--;
+      R++;
+    }
+    console.log('expand return' + (L + 1) + ":" + (R-1));
+
+    return [++L, --R];
+  }
+
+  return s.substring(start, end + 1)
 }
+longestPalindrome("zzbaabcd")
