@@ -1435,7 +1435,7 @@ const longestPalindrome = (s) => {
 
   return s.substring(start, end + 1)
 }
-console.log(longestPalindrome("zzbaabcd"));
+// console.log(longestPalindrome("zzbaabcd"));
 
 
 
@@ -1446,5 +1446,12 @@ console.log(longestPalindrome("zzbaabcd"));
 
 // [10, 343445353, 3453445, 3453545353453] should return 3453455.
 const sumTwoSmallestNumbers = (numbers) => {  
-  //Code here
+  const answer = [];
+  const x = numbers.split('').sort();
+  answer.push(x[0]) && answer.push(x[1]);
+  return answer.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
 }
+// sumTwoSmallestNumbers('343445353')
+console.log(sumTwoSmallestNumbers('343445353'));
