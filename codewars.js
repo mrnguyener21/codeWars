@@ -1445,13 +1445,21 @@ const longestPalindrome = (s) => {
 // For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
 
 // [10, 343445353, 3453445, 3453545353453] should return 3453455.
+
 const sumTwoSmallestNumbers = (numbers) => {  
-  const answer = [];
-  const x = numbers.split('').sort();
-  answer.push(x[0]) && answer.push(x[1]);
-  return answer.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue;
-  }, 0);
+  // below is my solution
+  // const answer = [];
+  // const add = (a,b) => a + b;
+  // const x = numbers.sort((a,b) => a-b);
+  
+  // answer.push(parseInt(x[0])) && answer.push(parseInt(x[1]));x
+  
+  // return answer.reduce(add);
+
+  //the better solution
+  numbers = numbers.sort(function(a, b){return a - b; });
+  return numbers[0] + numbers[1];
 }
-// sumTwoSmallestNumbers('343445353')
-console.log(sumTwoSmallestNumbers('343445353'));
+
+// sumTwoSmallestNumbers([19, 5, 42, 2, 77])
+// console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77]));
